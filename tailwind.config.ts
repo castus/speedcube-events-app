@@ -10,6 +10,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "lightBlue": "#79a5e9",
+        "competitorsFull": "#ff7777"
+      },
       margin: {
         small: "3px"
       }

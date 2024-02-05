@@ -4,6 +4,9 @@ const nextConfig = {
   reactStrictMode: false,
   compiler: {
   },
+  devIndicators: {
+    buildActivityPosition: 'top-left'
+  },
   images: {
     unoptimized: true,
     remotePatterns: [

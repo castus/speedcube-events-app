@@ -3,6 +3,7 @@
 import React from "react";
 import { Divider, Link, Button, } from "@nextui-org/react";
 import Image from "next/image";
+import { FaUsers, FaEnvelope, FaLink } from "react-icons/fa";
 
 const year = "2024"
 
@@ -36,16 +37,7 @@ export default function Competition(props: any) {
 
   let competitorsText = null
   if (props.item.Registered != 0 && props.item.CompetitorLimit != 0) {
-    competitorsText = <p className="pt-1 text-small text-default-700">
-      <Link
-        size="sm"
-        href={`${props.item.URL}/registrations`}
-        as={Link}
-        color="primary"
-        isExternal>
-      Zarejestrowanych {props.item.Registered}/{props.item.CompetitorLimit}
-      </Link>
-    </p>
+    competitorsText = `${props.item.Registered}/${props.item.CompetitorLimit}`
   }
 
   let WCALogo = null
@@ -73,7 +65,7 @@ export default function Competition(props: any) {
   }
   return (
     <div className="flex bg-white rounded-lg shadow-md relative">
-      <div className="flex-none flex w-[140px] p-5">
+      <div className="flex-none md:flex w-[100px] md:w-[140px] p-3 pt-6 md:p-5">
         {props.item.URL.length > 0 ? (
           <Link
             size="sm"
@@ -88,13 +80,13 @@ export default function Competition(props: any) {
           logoImage(props.item.Name, props.item.LogoURL)
         )}
       </div>
-      <div className="flex-auto w-64 p-5 rounded-r-lg bg-gradient-to-r from-[#ebebff]">
+      <div className="flex-auto w-64 p-5 pt-3 rounded-r-lg bg-gradient-to-r from-[#ebebff]">
         <div className="pr-8">
-          <p className="font-semibold tracking-tighter">
+          <h3 className="font-semibold tracking-tighter pb-2 leading-4">
             {props.item.URL.length > 0 ? (
               <Link
                 size="lg"
-                className="font-semibold tracking-tighter"
+                className="underline underline-offset-4"
                 href={props.item.URL}
                 color="foreground"
                 isExternal
@@ -104,35 +96,60 @@ export default function Competition(props: any) {
             ) : (
                 name
             )}
-          </p>
+          </h3>
           <p className="text-small text-default-500">{props.item.Date}</p>
           <p className="text-small text-default-500">{place}</p>
-          <p className="text-small text-default-500">Organizator: <Link
-              className="text-small"
-              isExternal
-              href={`mailto:${props.item.ContactURL}`}
-            >{props.item.ContactName}</Link>
-          </p>
         </div>
-        <Divider className="mt-2 mb-2" />
+        {eventsText != null && (
+          <Divider className="mt-2 mb-2" />
+        )}
         {eventsText}
-        {competitorsText}
+        {eventsText != null && (
+          <Divider className="mt-2 mb-2" />
+        )}
         {WCALogo}
         {mainEventsText}
 
-        {props.item.URL.length > 0 && (
-          <p className="mt-3"><Button
+        <p className="mt-3 flex gap-3">
+          {competitorsText != null && (
+            <Button
+              className={props.item.Registered == props.item.CompetitorLimit ? `iconButtonFull` : `iconButton`}
+              size="sm"
+              href={`${props.item.URL}/registrations`}
+              as={Link}
+              color="primary"
+              isExternal
+              variant="bordered"
+              >
+              <FaUsers className="iconButtonIcon" />
+              <span className="iconButtonText">{competitorsText}</span>
+            </Button>
+          )}
+          {props.item.URL.length > 0 && (
+            <Button
+              className="iconButton"
+              size="sm"
+              href={props.item.URL}
+              as={Link}
+              color="primary"
+              isExternal
+              variant="bordered"
+              >
+              <FaLink className="iconButtonIcon" />
+            </Button>
+          )}
+          <Button
+            className="iconButton"
             size="sm"
-            href={props.item.URL}
+            href={`mailto:${props.item.ContactURL}`}
             as={Link}
             color="primary"
-            showAnchorIcon
             isExternal
             variant="bordered"
-          >
-            Strona zawodów
-          </Button></p>
-        )}
+            >
+            <FaEnvelope className="iconButtonIcon" />
+          </Button>
+        </p>
       </div>
     </div>
   );
