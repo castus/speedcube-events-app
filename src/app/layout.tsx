@@ -16,6 +16,10 @@ export default function RootLayout({
       <head>
         <title>Imprezy Speedcuberskie 2024</title>
         <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e075490a437040bd90fdf1c99c0a9f4a"}'></script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.className} vsc-initialized`}>
           <header className="pt-6 pb-6 md:pt-12 md:pb-12 mx-auto bg-[#FFB258]">
