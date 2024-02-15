@@ -2,6 +2,7 @@
 
 import React from "react";
 import Competition from "./competition";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 let listComponents: any = []
 
@@ -11,9 +12,17 @@ export default function ListItem(props: any) {
   })
   return (
     <>
-      <h1 className="text-[#10172A] text-2xl md:text-3xl font-semibold tracking-tighter font-semibold tracking-tighter mb-5">{props.header}</h1>
-      <div className="grid place-items-stretch grid-cols-1 gap-6 mb-10 md:grid-cols-2">
-        {[ listComponents ]}
+      <div className="border-solid border-y-2 border-white p-4 mb-5 bg-[#ffeca1]">
+        <h1 className="container mx-auto pr-3 pl-3 text-[#10172A] text-2xl font-regular tracking-tighter">
+          <FaRegCalendarAlt className="inline align-text-top relative bottom-[-1px]" /> {props.header}
+        </h1>
+      </div>
+      <div className="container mx-auto">
+        <div className="pr-3 pl-3">
+          <div className="grid place-items-stretch grid-cols-1 gap-6 md:grid-cols-2 mb-10">
+            {[ listComponents ]}
+          </div>
+        </div>
       </div>
     </>
   );

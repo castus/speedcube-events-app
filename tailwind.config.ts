@@ -11,8 +11,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        "iconButton": "#249674",
         "lightBlue": "#79a5e9",
-        "competitorsFull": "#ff7777"
+        "iconButtonFull": "#DE4B64"
       },
       margin: {
         small: "3px"

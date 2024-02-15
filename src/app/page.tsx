@@ -66,11 +66,11 @@ export default function Home() {
 
   if (loading) {
     return <Progress
-      isStriped
+      color="success"
       size="md"
       isIndeterminate
       aria-label="Loading..."
-      className="max-w-md"
+      className="max-w-md mx-auto my-6"
     />;
   }
 

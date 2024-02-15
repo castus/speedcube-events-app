@@ -4,19 +4,11 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-end-rgb));
-  background: linear-gradient(135deg,
-  rgba(27, 132, 188, 1) 0%,
-  rgba(88, 240, 38, 1) 170px,
-  rgba(246, 228, 8, 1) 270px,
-  rgb(var(--background-start-rgb)) 500px,
-  rgb(var(--background-end-rgb)));
+  background: #F9DA61
 }
 
 @layer utilities {
@@ -26,17 +18,21 @@ body {
 }
 
 .iconButton {
-  @apply border-1 pl-0 pr-0 pt-1 pb-1 flex-1 min-w-12 flex flex-col gap-0 h-[40px] leading-4 border-lightBlue;
-}
-.iconButtonFull {
-  @apply iconButton border-competitorsFull text-competitorsFull !important;
-}
-.iconButtonFull svg {
-  @apply text-competitorsFull;
+  @apply border-1 pl-0 pr-0 pt-1 pb-1 flex-1 min-w-12 flex flex-col gap-0 h-[40px] leading-4 border-iconButton;
 }
 .iconButtonIcon {
-  @apply block w-[20px] h-[20px] text-lightBlue;
+  @apply block w-[20px] h-[20px] text-iconButton;
 }
 .iconButtonText {
+  @apply text-iconButton;
+}
 
+.iconButtonFull {
+  @apply iconButton border-iconButtonFull text-iconButtonFull !important;
+}
+.iconButtonFull svg {
+  @apply text-iconButtonFull;
+}
+.iconButtonFull .iconButtonText {
+  @apply text-iconButtonFull;
 }

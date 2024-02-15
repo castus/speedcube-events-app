@@ -3,7 +3,7 @@
 import React from "react";
 import { Divider, Link, Button, } from "@nextui-org/react";
 import Image from "next/image";
-import { FaUsers, FaEnvelope, FaLink } from "react-icons/fa";
+import { FaUsers, FaEnvelope, FaGlobe } from "react-icons/fa";
 
 const year = "2024"
 
@@ -42,7 +42,7 @@ export default function Competition(props: any) {
 
   let WCALogo = null
   if (props.item.HasWCA) {
-    WCALogo = <Image src="https://www.worldcubeassociation.org/assets/WCA%20Logo%202020-061de52e4072abad5c277eb08f333316d1ff9133c14fc061e61f291c6c1547f7.svg" width="30" height="30" alt="WCA logo" className="inline-block absolute top-2 right-2" />
+    WCALogo = <Image src="https://www.worldcubeassociation.org/files/WCAlogo_notext.svg" width="30" height="30" alt="WCA logo" className="inline-block absolute top-2 right-2" />
   }
 
   function cubeImageForTag(tag: string) {
@@ -64,7 +64,7 @@ export default function Competition(props: any) {
     />
   }
   return (
-    <div className="flex bg-white rounded-lg shadow-md relative">
+    <div className="flex bg-white rounded-lg border-solid border-2 border-black relative">
       <div className="flex-none md:flex w-[100px] md:w-[140px] p-3 pt-6 md:p-5">
         {props.item.URL.length > 0 ? (
           <Link
@@ -80,7 +80,7 @@ export default function Competition(props: any) {
           logoImage(props.item.Name, props.item.LogoURL)
         )}
       </div>
-      <div className="flex-auto w-64 p-5 pt-3 rounded-r-lg bg-gradient-to-r from-[#ebebff]">
+      <div className="flex-auto w-64 p-5 pt-3 rounded-r-lg bg-[#dff4ff]">
         <div className="pr-8">
           <h3 className="font-semibold tracking-tighter pb-2 leading-4">
             {props.item.URL.length > 0 ? (
@@ -135,7 +135,7 @@ export default function Competition(props: any) {
               isExternal
               variant="bordered"
               >
-              <FaLink className="iconButtonIcon" />
+              <FaGlobe className="iconButtonIcon" />
             </Button>
           )}
           <Button
