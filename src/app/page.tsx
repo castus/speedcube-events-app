@@ -28,6 +28,37 @@ function prepare(data: any): any {
     }
   })
 
+  const sorted = sortListByDate(list)
+  return sorted
+}
+
+function extractDay(dateString: string): number {
+  let days = dateString.split(" ")[0]
+  let day = days.split("-")[0]
+
+  return parseInt(day, 10)
+}
+
+function sortListByDate(list: any): any {
+  Object.entries(list).forEach(([key, value]) => {
+    const val: any = value
+    if (val.length > 0) {
+      val.sort((a: any, b: any) => {
+        const dayA = extractDay(a.Date)
+        const dayB = extractDay(b.Date)
+        if (dayA < dayB) {
+          return -1;
+        }
+        if (dayA > dayB) {
+          return 1;
+        }
+
+        return 0;
+      })
+      list[key] = val
+    }
+  });
+
   return list
 }
 

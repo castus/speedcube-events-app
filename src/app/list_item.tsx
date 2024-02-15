@@ -15,6 +15,7 @@ export default function ListItem(props: any) {
       <div className="border-solid border-y-2 border-white p-4 mb-5 bg-[#ffeca1]">
         <h1 className="container mx-auto pr-3 pl-3 text-[#10172A] text-2xl font-regular tracking-tighter">
           <FaRegCalendarAlt className="inline align-text-top relative bottom-[-1px]" /> {props.header}
+          <small className="font-light"> ({props.items.length})</small>
         </h1>
       </div>
       <div className="container mx-auto">
