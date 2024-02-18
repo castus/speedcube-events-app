@@ -93,7 +93,7 @@ export default function Home() {
       setError(err.message);
       setLoading(false);
     });
-  }, []);
+  }, [dataURL]);
 
   if (loading) {
     return <Progress

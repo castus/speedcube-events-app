@@ -7,7 +7,7 @@ import { FaUsers, FaEnvelope, FaGlobe } from "react-icons/fa";
 
 const year = "2024"
 
-export default function Competition(props: any) {
+export default function Info(props: any) {
   let name = props.item.Name.replace(" " + year, "")
 
   let place = props.item.Place
@@ -55,58 +55,32 @@ export default function Competition(props: any) {
     return <Image key={tag} src={src} width="30" height="30" alt={tag} className="inline-block absolute top-12 right-2" />
   }
 
-  function logoImage(name: string, logoURL: string) {
-    return <Image className="place-self-center"
-      alt={name}
-      src={logoURL}
-      height={100}
-      width={100}
-    />
-  }
   return (
-    <div className="flex bg-white rounded-lg border-solid border-2 border-black relative">
-      <div className="flex-none md:flex w-[100px] md:w-[140px] p-3 pt-6 md:p-5">
-        {props.item.URL.length > 0 ? (
-          <Link
-            size="sm"
-            href={props.item.URL}
-            as={Link}
-            color="primary"
-            isExternal
-          >
-            {logoImage(props.item.Name, props.item.LogoURL)}
-          </Link>
-        ) : (
-          logoImage(props.item.Name, props.item.LogoURL)
-        )}
+    <div>
+      <div className="pr-8">
+        <h3 className="font-semibold tracking-tighter pb-2 leading-4">
+          {props.item.URL.length > 0 ? (
+            <Link
+              size="lg"
+              className="underline underline-offset-4"
+              href={props.item.URL}
+              color="foreground"
+              isExternal
+            >
+              {name}
+            </Link>
+          ) : (
+            name
+          )}
+        </h3>
+        <p className="text-small text-default-500">{props.item.Date}</p>
+        <p className="text-small text-default-500">{place}</p>
       </div>
-      <div className="flex-auto w-64 p-5 pt-3 rounded-r-lg bg-[#dff4ff]">
-        <div className="pr-8">
-          <h3 className="font-semibold tracking-tighter pb-2 leading-4">
-            {props.item.URL.length > 0 ? (
-              <Link
-                size="lg"
-                className="underline underline-offset-4"
-                href={props.item.URL}
-                color="foreground"
-                isExternal
-              >
-                {name}
-              </Link>
-            ) : (
-                name
-            )}
-          </h3>
-          <p className="text-small text-default-500">{props.item.Date}</p>
-          <p className="text-small text-default-500">{place}</p>
-        </div>
+      <div>
         {eventsText != null && (
           <Divider className="mt-2 mb-2" />
         )}
         {eventsText}
-        {eventsText != null && (
-          <Divider className="mt-2 mb-2" />
-        )}
         {WCALogo}
         {mainEventsText}
 
@@ -120,7 +94,7 @@ export default function Competition(props: any) {
               color="primary"
               isExternal
               variant="bordered"
-              >
+            >
               <FaUsers className="iconButtonIcon" />
               <span className="iconButtonText">{competitorsText}</span>
             </Button>
@@ -134,7 +108,7 @@ export default function Competition(props: any) {
               color="primary"
               isExternal
               variant="bordered"
-              >
+            >
               <FaGlobe className="iconButtonIcon" />
             </Button>
           )}
@@ -146,7 +120,7 @@ export default function Competition(props: any) {
             color="primary"
             isExternal
             variant="bordered"
-            >
+          >
             <FaEnvelope className="iconButtonIcon" />
           </Button>
         </p>

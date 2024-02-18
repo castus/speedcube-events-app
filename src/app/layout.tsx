@@ -26,7 +26,7 @@ export default function RootLayout({
             <div className="container mx-auto">
               <h1 className="text-[#10172A] text-3xl md:text-5xl font-light tracking-[-.08em] text-center">
                 <Image alt="Logo" src="/icon.png" width="60" height="60" className="mr-auto ml-auto md:mr-5 md:ml-0 block md:inline-block mb-3 md:mb-0" />
-                Imprezy <span className="underline leading-8 underline-offset-8	decoration-8 decoration-[#8B5CF6]">Speedcuberskie</span> 2024
+              Imprezy <span className="underline leading-8 underline-offset-8	decoration-8 decoration-[#f14561]">Speedcuberskie</span> 2024
               </h1>
             </div>
           </header>

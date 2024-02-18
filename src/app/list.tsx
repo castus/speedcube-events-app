@@ -1,17 +1,21 @@
 "use client"
 
-import ListItem from "./list_item";
+import Section from "./section/section";
 
-let listComponents: any = []
+let sections: any = []
 
 export default function List(props: any) {
+  let index = 0
   Object.entries(props.items).forEach(([key, value]) => {
     const val: any = value
     if (val.length > 0) {
-      listComponents.push(<ListItem key={key} header={key} items={value} />)
+      sections.push(<Section key={index} header={key} items={value} />)
+      index++
     }
   });
   return (
-    [ listComponents ]
+    <>
+      {[ sections ]}
+    </>
   );
 }
