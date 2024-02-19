@@ -15,8 +15,8 @@ export default function Section(props: any) {
     <>
       <SectionHeader
         title={props.header}
-        itemsCount={props.items.filter(item => !item.HasPassed).length}
-        passedItemsCount={props.items.filter(item => item.HasPassed).length}
+        itemsCount={props.items.filter(function (item: any) { return !item.HasPassed }).length}
+        passedItemsCount={props.items.filter(function (item: any) { return item.HasPassed }).length}
         showAll={showAll}
         toggleShowAll={toggleShowAll}
       />

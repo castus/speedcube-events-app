@@ -11,7 +11,7 @@ export default function Section(props: any) {
       return <Competition key={object.Id} item={object} />
     })
   } else {
-    listComponents = props.items.filter(item => !item.HasPassed).map((object: any) => {
+    listComponents = props.items.filter(function (item: any) { return !item.HasPassed }).map((object: any) => {
       return <Competition key={object.Id} item={object} />
     })
   }
