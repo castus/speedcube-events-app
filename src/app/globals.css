@@ -4,9 +4,10 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  background: #FFB258
 }
 
-body {
+html, body {
   color: rgb(var(--foreground-rgb));
   background: #F9DA61
 }
