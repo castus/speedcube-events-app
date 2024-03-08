@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react";
-import { FaRegCalendarAlt } from "react-icons/fa";
 import { Switch, cn } from "@nextui-org/react";
 
 export default function SectionHeader(props: any) {
@@ -10,8 +9,7 @@ export default function SectionHeader(props: any) {
       <div className="container mx-auto pr-3 pl-3">
         <div className="flex flex-row">
           <h1 className="text-[#10172A] text-2xl font-regular tracking-tighter basis-1/2">
-            <FaRegCalendarAlt className="inline align-text-top relative bottom-[-1px]" /> {props.title}
-            <small className="font-light"> ({props.itemsCount})</small>
+            {props.title} <small className="font-light"> ({props.itemsCount})</small>
           </h1>
           {props.passedItemsCount > 0 && (
             <p className="basis-1/2 text-right mt-[2px]">
